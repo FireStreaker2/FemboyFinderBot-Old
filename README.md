@@ -4,9 +4,9 @@
 FemboyFinderBot is a Discord bot written in Python. It utilizes the <a href="https://github.com/FireStreaker2/FemboyFinder#api">FemboyFinder API</a> to bring FemboyFinder to Discord!
 
 # Usage
-FemboyFinderBot can be invited to servers with the following link: https://discord.com/oauth2/authorize?&client_id=1132490986736582736&scope=bot&permissions=274877908992   
+FemboyFinderBot can be invited to servers <a href="https://discord.com/oauth2/authorize?&client_id=1132490986736582736&scope=bot&permissions=274877908992">here</a>
 
-The default prefix is ``.``
+The default prefix is ``.``, which can be changed.
 
 ## Commands
 | Command        | Description             |
@@ -27,7 +27,7 @@ $ python main.py
 ```
 
 # Configuration
-If you are selfhosting this bot, you can easily configure it your needs. The configuration options below can be found in ``main.py``, lines 11-14.
+If you are selfhosting this bot, you can easily configure it to your needs. The configuration options below can be found in ``main.py``, lines 11-14.
 ```py
 config = {
     "Prefix": ".", # bot prefix
