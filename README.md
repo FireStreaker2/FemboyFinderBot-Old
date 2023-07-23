@@ -13,6 +13,7 @@ The default prefix is ``.``, which can be changed.
 | ---------------|-------------------------|
 | .find [query]  | Find a femboy!          |
 | .about         | Sends an about message. |
+| .stats         | Sends the bot's stats.  |
 | .help          | Sends a help message.   |
 
 # Selfhosting

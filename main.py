@@ -14,13 +14,13 @@ config = {
 }
 
 load_dotenv()
-
 TOKEN = os.getenv("TOKEN")
 
 intents = discord.Intents.all()
 intents.message_content = True
-
 bot = commands.Bot(command_prefix=config["Prefix"], intents=intents)
+
+femboys = 0
 
 # events
 @bot.event
@@ -80,11 +80,23 @@ async def find(ctx, query):
     embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
 
     await ctx.send(embed=embed)
+    global femboys
+    femboys += 1
 
 @bot.command(help="About FemboyFinderBot")
 async def about(ctx):
     embed = discord.Embed(title="About", description="FemboyFinderBot is a bot developed by firestreaker2, using Discord.py. It works by querying the Danbooru API for images given the value provided by the end user, and randomly selects one.")
     embed.add_field(name="More Resources", value="For more info, you may refer to the [GitHub Page](https://github.com/FireStreaker2/FemboyFinderBot)", inline=False)
+    embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
+    embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
+
+    await ctx.send(embed=embed)
+
+@bot.command(help="Bot Statistics")
+async def stats(ctx):
+    embed = discord.Embed(title="Stats")
+    embed.add_field(name="Guilds", value=f"I am currently in {len(bot.guilds)} servers.", inline=False)
+    embed.add_field(name="Femboys", value=f"I have found {femboys} femboys so far.", inline=False)
     embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
     embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
 
@@ -98,6 +110,7 @@ async def help(ctx):
     embed.add_field(name="Prefix", value=f"``{config['Prefix']}``", inline=False)
     embed.add_field(name=f"{config['Prefix']}find [query]", value=f"Find a femboy!\nExample: ``{config['Prefix']}find astolfo``", inline=False)
     embed.add_field(name=f"{config['Prefix']}about", value=f"Sends the about message.\nExample: ``{config['Prefix']}about``", inline=False)
+    embed.add_field(name=f"{config['Prefix']}stats", value=f"Sends bot statistics.\nExample: ``{config['Prefix']}stats``", inline=False)
     embed.add_field(name=f"{config['Prefix']}help", value=f"Sends this message!\nExamle: ``{config['Prefix']}help``", inline=False)
     embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
     embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
