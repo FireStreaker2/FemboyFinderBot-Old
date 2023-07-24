@@ -117,7 +117,7 @@ bot.remove_command("help")
 async def help(ctx):
     embed = discord.Embed(title="Help", description="Help for FemboyFinderBot")
     embed.add_field(name="Prefix", value=f"``{config['Prefix']}``", inline=False)
-    embed.add_field(name=f"{config['Prefix']}find [query]", value=f"Find a femboy!\nExample: ``{config['Prefix']}find astolfo``\n\n> Note that if you are trying to search with a term that has more than one word, use a ``_`` instead of a space.\n> Example: ``{config['Prefix']}search felix_argyle``", inline=False)
+    embed.add_field(name=f"{config['Prefix']}find [query]", value=f"Find a femboy!\nExample: ``{config['Prefix']}find astolfo``\n\n> Note that if you are trying to search with a term that has more than one word, use a ``_`` instead of a space.\n> Example: ``{config['Prefix']}find felix_argyle``", inline=False)
     embed.add_field(name=f"{config['Prefix']}about", value=f"Sends the about message.\nExample: ``{config['Prefix']}about``", inline=False)
     embed.add_field(name=f"{config['Prefix']}stats", value=f"Sends bot statistics.\nExample: ``{config['Prefix']}stats``", inline=False)
     embed.add_field(name=f"{config['Prefix']}help", value=f"Sends this message!\nExamle: ``{config['Prefix']}help``", inline=False)
