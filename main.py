@@ -55,41 +55,42 @@ async def on_command_error(ctx, error):
 # commands
 @bot.command(help="Find a femboy near you!")
 async def find(ctx, query):
-    if ctx.channel.is_nsfw() != True:
+    if isinstance(ctx.channel, discord.DMChannel) or (isinstance(ctx.channel, discord.TextChannel) and ctx.channel.is_nsfw()):
+        response = requests.get(f"https://femboyfinder.firestreaker2.gq/api/{query}")
+        data = response.json()
+        status = data.get("Status")
+
+        # error handling
+        if response.status_code != 200 or status != 200:
+            embed = discord.Embed(title="An Error Occurred", description="Hey, hey, Master! Something's up, let's go check it out!")
+            embed.add_field(name="Internal Server Error", value="500: no femboys found")
+            embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
+            embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
+
+            await ctx.send(embed=embed)
+            return
+
+        
+        image = data.get("URL")
+        dimensions = data.get("Dimensions")
+
+        embed = discord.Embed(title="Femboy Found!")
+        embed.add_field(name="Query", value=query, inline=False)
+        embed.add_field(name="Dimensions", value=dimensions, inline=False)
+        embed.set_image(url=image)
+        embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
+
+        await ctx.send(embed=embed)
+        global femboys
+        femboys += 1
+
+    else:
         embed = discord.Embed(title="Error", description="This channel is not marked as NSFW. In order to succesfully run this command, please mark this channel as NSFW and rerun this command.")
         embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
         embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
 
         await ctx.send(embed=embed)
         return
-
-    response = requests.get(f"https://femboyfinder.firestreaker2.gq/api/{query}")
-    data = response.json()
-    status = data.get("Status")
-
-    # error handling
-    if response.status_code != 200 or status != 200:
-        embed = discord.Embed(title="An Error Occurred", description="Hey, hey, Master! Something's up, let's go check it out!")
-        embed.add_field(name="Internal Server Error", value="500: no femboys found")
-        embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
-        embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
-
-        await ctx.send(embed=embed)
-        return
-
-    
-    image = data.get("URL")
-    dimensions = data.get("Dimensions")
-
-    embed = discord.Embed(title="Femboy Found!")
-    embed.add_field(name="Query", value=query, inline=False)
-    embed.add_field(name="Dimensions", value=dimensions, inline=False)
-    embed.set_image(url=image)
-    embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
-
-    await ctx.send(embed=embed)
-    global femboys
-    femboys += 1
 
 @bot.command(help="About FemboyFinderBot")
 async def about(ctx):

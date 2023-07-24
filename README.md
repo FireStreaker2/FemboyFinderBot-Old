@@ -16,7 +16,7 @@ The default prefix is ``.``, which can be changed.
 | .stats         | Sends the bot's stats.  |
 | .help          | Sends a help message.   |
 
-> Please note that if you are using the ``.find`` command, the channel you are currently in **must** be marked as NSFW before you can run the command.
+> Please note that if you are using the ``.find`` command, the channel you are currently in **must** be either marked as NSFW or be a DM channel before you can run the command.
 
 # Selfhosting
 If you would like to selfhost this, you may.
