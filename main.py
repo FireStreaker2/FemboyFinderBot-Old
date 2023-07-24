@@ -55,6 +55,14 @@ async def on_command_error(ctx, error):
 # commands
 @bot.command(help="Find a femboy near you!")
 async def find(ctx, query):
+    if ctx.channel.is_nsfw() != True:
+        embed = discord.Embed(title="Error", description="This channel is not marked as NSFW. In order to succesfully run this command, please mark this channel as NSFW and rerun this command.")
+        embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
+        embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
+
+        await ctx.send(embed=embed)
+        return
+
     response = requests.get(f"https://femboyfinder.firestreaker2.gq/api/{query}")
     data = response.json()
     status = data.get("Status")
@@ -106,9 +114,9 @@ async def stats(ctx):
 bot.remove_command("help")
 @bot.command()
 async def help(ctx):
-    embed = discord.Embed(title="Help", description="Commands for FemboyFinderBot")
+    embed = discord.Embed(title="Help", description="Help for FemboyFinderBot")
     embed.add_field(name="Prefix", value=f"``{config['Prefix']}``", inline=False)
-    embed.add_field(name=f"{config['Prefix']}find [query]", value=f"Find a femboy!\nExample: ``{config['Prefix']}find astolfo``", inline=False)
+    embed.add_field(name=f"{config['Prefix']}find [query]", value=f"Find a femboy!\nExample: ``{config['Prefix']}find astolfo``\n\n> Note that if you are trying to search with a term that has more than one word, use a ``_`` instead of a space.\n> Example: ``{config['Prefix']}search felix_argyle``", inline=False)
     embed.add_field(name=f"{config['Prefix']}about", value=f"Sends the about message.\nExample: ``{config['Prefix']}about``", inline=False)
     embed.add_field(name=f"{config['Prefix']}stats", value=f"Sends bot statistics.\nExample: ``{config['Prefix']}stats``", inline=False)
     embed.add_field(name=f"{config['Prefix']}help", value=f"Sends this message!\nExamle: ``{config['Prefix']}help``", inline=False)

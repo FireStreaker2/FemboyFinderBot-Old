@@ -16,6 +16,8 @@ The default prefix is ``.``, which can be changed.
 | .stats         | Sends the bot's stats.  |
 | .help          | Sends a help message.   |
 
+> Please note that if you are using the ``.find`` command, the server **must** be marked as NSFW before you can run the command.
+
 # Selfhosting
 If you would like to selfhost this, you may.
 ```bash
