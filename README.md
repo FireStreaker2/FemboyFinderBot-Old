@@ -6,7 +6,7 @@ FemboyFinderBot is a Discord bot written in Python. It utilizes the <a href="htt
 # Usage
 FemboyFinderBot can be invited to servers <a href="https://discord.com/oauth2/authorize?&client_id=1132490986736582736&scope=bot&permissions=274877908992">here</a>
 
-The default prefix is ``.``, which can be changed.
+The default prefix is ``.``, which can be changed if you are selfhosting the bot.
 
 ## Commands
 | Command        | Description             |
@@ -37,6 +37,12 @@ config = {
     "Status": "Femboys", # what the bot is "watching" 
 }
 ```
+
+Also be sure to enable the ``Message Content Intent`` in your developer panel so the bot will work.
+
+# Support
+For support regarding FemboyFinderBot, you can join our Discord server:
+[![Support Server](https://invidget.switchblade.xyz/bruQhB8Eg5?theme=dark)](https://discord.gg/bruQhB8Eg5)
 
 # License
 <a href="https://github.com/FireStreaker2/FemboyFinderBot/blob/main/LICENSE">MIT</a>
