@@ -15,12 +15,13 @@ config = {
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
+femboys = int(os.getenv("FEMBOY_COUNT", 0))
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix=config["Prefix"], intents=intents)
 
-femboys = int(os.getenv("FEMBOY_COUNT", 0))
+api = os.getenv("API", "https://femboyfinder.firestreaker2.gq")
 
 # events
 @bot.event
@@ -41,7 +42,7 @@ async def on_guild_join(guild):
 
         await channel.send(embed=embed)
     except Exception as e:
-        print(f"Unable to send welcome message in {guild.name}: {e}")
+        print(f"Unable to send welcome message: {e}")
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -56,14 +57,14 @@ async def on_command_error(ctx, error):
 @bot.command(help="Find a femboy near you!")
 async def find(ctx, query):
     if isinstance(ctx.channel, discord.DMChannel) or (isinstance(ctx.channel, discord.TextChannel) and ctx.channel.is_nsfw()):
-        response = requests.get(f"https://femboyfinder.firestreaker2.gq/api/{query}")
+        response = requests.get(f"{api}/api/{query}")
         data = response.json()
         status = data.get("Status")
 
         # error handling
         if response.status_code != 200 or status != 200:
             embed = discord.Embed(title="An Error Occurred", description="Hey, hey, Master! Something's up, let's go check it out!")
-            embed.add_field(name="Internal Server Error", value="500: no femboys found")
+            embed.add_field(name="Internal Server Error", value="500: No femboys found")
             embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
             embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
 
@@ -73,6 +74,15 @@ async def find(ctx, query):
         
         image = data.get("URL")
         dimensions = data.get("Dimensions")
+
+        if dimensions == None:
+            embed = discord.Embed(title="An Error Occurred", description="Hey, hey, Master! Something's up, let's go check it out!")
+            embed.add_field(name="Internal Server Error", value="500: No femboys found")
+            embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
+            embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
+
+            await ctx.send(embed=embed)
+            return
 
         embed = discord.Embed(title="Femboy Found!")
         embed.add_field(name="Query", value=query, inline=False)
@@ -114,7 +124,7 @@ async def stats(ctx):
 
 ## custom help message
 bot.remove_command("help")
-@bot.command()
+@bot.command(help="Send a help message")
 async def help(ctx):
     embed = discord.Embed(title="Help", description="Help for FemboyFinderBot")
     embed.add_field(name="Prefix", value=f"``{config['Prefix']}``", inline=False)
