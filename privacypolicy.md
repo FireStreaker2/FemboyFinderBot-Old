@@ -28,8 +28,8 @@ As we do not collect any personal information or messages, there are no specific
 
 If you have any questions, concerns, or feedback regarding this Privacy Policy or the Bot's functionality, you can reach out to us through the following means:
 
-Email: ``help@firestreaker2.gq``
-Discord Server: ``https://discord.gg/bruQhB8Eg5``
+Email: ``help@firestreaker2.gq``  
+Discord Server: ``https://discord.gg/bruQhB8Eg5``  
 Please note that while we strive to respond promptly, the response time may vary depending on the volume of inquiries.
 
 ## 6. Updates to this Privacy Policy
