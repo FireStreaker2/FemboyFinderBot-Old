@@ -116,7 +116,7 @@ async def about(ctx):
 async def stats(ctx):
     embed = discord.Embed(title="Stats")
     embed.add_field(name="Guilds", value=f"I am currently in {len(bot.guilds)} servers.", inline=False)
-    embed.add_field(name="Femboys", value=f"I have found {femboys} femboys so far.", inline=False)
+    embed.add_field(name="Femboys", value=f"I have found {femboys} femboys this month.", inline=False)
     embed.set_thumbnail(url="https://i.pinimg.com/736x/50/77/1f/50771f45b1c015cfbb8b0853ba7b8521.jpg")
     embed.set_footer(text="Made by FireStreaker2", icon_url="https://media.discordapp.net/attachments/739313608923807844/1096169389339967618/image0.jpg")
 

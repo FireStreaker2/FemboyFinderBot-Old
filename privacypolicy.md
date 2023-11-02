@@ -1,6 +1,6 @@
 # Privacy Policy for FemboyFinderBot
 
-Effective Date: August 29, 2023
+Effective Date: November 1, 2023
 
 Thank you for using FemboyFinderBot (referred to as "the Bot," "we," "us," or "our"). This Privacy Policy outlines how we handle and protect your information when you interact with the Bot. By using the Bot, you agree to the terms of this Privacy Policy.
 
@@ -9,6 +9,8 @@ Thank you for using FemboyFinderBot (referred to as "the Bot," "we," "us," or "o
 We want to be transparent about the data we collect and why we collect it. When you use the Bot, we do not collect, store, or log any user messages, content, or personal information. We are committed to respecting your privacy and ensuring that your interactions with the Bot remain confidential.
 
 The only information we collect is the usage of the "find" command. We log the number of times the "find" command is executed to help us understand the popularity of this feature and improve our services. This information is solely used for statistical purposes and does not identify individual users or their actions.
+
+However, please note that we reset this data the first of every month. If you would like this data to be removed before the planned date, please [email us](mailto:help@firestreaker2.gq)
 
 ## 2. How We Use Collected Information
 
