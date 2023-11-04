@@ -1,7 +1,10 @@
 ![FemboyFinderBot](https://socialify.git.ci/FireStreaker2/FemboyFinderBot/image?description=1&forks=1&issues=1&logo=https%3A%2F%2Fi.pinimg.com%2F736x%2F50%2F77%2F1f%2F50771f45b1c015cfbb8b0853ba7b8521.jpg&name=1&owner=1&pulls=1&stargazers=1&theme=Dark)
 
+# History
+This is the repository for the old version of [FemboyFinderBot](http://github.com/FireStreaker2/FemboyFinderBot). It will still be maintained, but new updates will be primarily for the newer version.
+
 # About
-FemboyFinderBot is a Discord bot written in Python. It utilizes the <a href="https://github.com/FireStreaker2/FemboyFinder#api">FemboyFinder API</a> to bring FemboyFinder to Discord!
+FemboyFinderBot-Old is a Discord bot written in Python. It utilizes the <a href="https://github.com/FireStreaker2/FemboyFinder#api">FemboyFinder API</a> to bring FemboyFinder to Discord!
 
 # Usage
 FemboyFinderBot can be invited to servers <a href="https://discord.com/oauth2/authorize?&client_id=1132490986736582736&scope=bot&permissions=274877908992">here</a>
